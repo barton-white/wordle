@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #121213;
+  color:#fff;
+  padding: 60px 30px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 0 auto 5px;
+  width: 100%;
+  max-width: 800px;
 }
-
-.App-link {
-  color: #61dafb;
+.main-container {
+  margin-bottom: 25px;
 }
+.cell {
+  display: inline-flex;
+  //border:1px solid #fff;
+  width: 52px;
+  height: 52px;
+  margin: 0 5px 0 0;
+  vertical-align: middle;
+  font-size: 32px;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 2px solid #3a3a3c;
+  &.wrong, &.right, &.almost {
+    border: none;
+  }
+  &.wrong {
+    background: #3a3a3c;
+  }
+  &.right {
+    background: #538d4e;
+  }
+  &.almost {
+    background: #b59f3b;
+  }
+}
+.keyboard {
+  max-width: 800px;
+  margin: 0 auto;
+  //display: flex;
+  text-align: center;
+  button{
+    display: inline-block;
+    font-size: 20px;
+    min-width: 43px;
+    background:#818384;
+    color: #f8f8f8;
+    border: none;
+    margin: 0 8px 8px 0;
+    border-radius: 3px;
+    height: 58px;
+    text-transform: uppercase;
+    font-weight: bold;
+    fill: #fff;
+    small {
+      font-size: 12px;
+      display: inline-block;
+      transform:translate(0,-4px);
+    }
+    &.wide {
+      min-width: 65px;
+    }
+    &:hover {
+      background: #929292;
+    }
+    &:active {
+      transform: translate(0,2px);
+      background: #666;
+    }
+    &.wrong {
+      background: #3a3a3c;
+    }
+    &.right {
+      background: #538d4e;
+    }
+    &.almost {
+      background: #b59f3b;
+    }
+  }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
