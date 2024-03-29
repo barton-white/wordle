@@ -5,6 +5,9 @@ body {
   background: #121213;
   color:#fff;
   padding: 60px 30px;
+  @media (max-width: 800px) {
+    padding: 30px 10px;
+  }
 }
 .row {
   display: flex;
@@ -12,6 +15,30 @@ body {
   margin: 0 auto 5px;
   width: 100%;
   max-width: 800px;
+  &.row_wrong {
+    animation: wrongShake .8s linear 0s 1 forwards;
+  }
+  &.row_anim {
+    .cell:nth-child(1) {
+      animation: validFlip 1s linear 0s 1 backwards;
+    }
+    .cell:nth-child(2) {
+      animation: validFlip 1s linear 0.2s 1 backwards;
+    }
+    .cell:nth-child(3) {
+      animation: validFlip 1s linear 0.4s 1 backwards;
+    }
+    .cell:nth-child(4) {
+      animation: validFlip 1s linear 0.6s 1 backwards;
+    }
+    .cell:nth-child(5) {
+      animation: validFlip 1s linear 0.8s 1 backwards;
+    }
+    
+  }
+  /*&.current {
+    outline: 1px dotted #f0f;
+  }*/
 }
 .main-container {
   margin-bottom: 25px;
@@ -45,7 +72,6 @@ body {
 .keyboard {
   max-width: 800px;
   margin: 0 auto;
-  //display: flex;
   text-align: center;
   button{
     display: inline-block;
@@ -57,6 +83,7 @@ body {
     margin: 0 8px 8px 0;
     border-radius: 3px;
     height: 58px;
+    padding: 0 3px;
     text-transform: uppercase;
     font-weight: bold;
     fill: #fff;
@@ -84,6 +111,56 @@ body {
     &.almost {
       background: #b59f3b;
     }
+    @media (max-width: 800px) {
+      min-width: 8vw;
+      margin: 0 4px 4px 0;
+      &.wide{
+        min-width: 8vw;;
+      }
+    }
   }
 
+}
+@keyframes wrongShake {
+  0%{
+    transform: translateX(0px);
+  }
+  10%{
+    transform: translateX(-10px);
+  }
+  20%{
+    transform: translateX(10px);
+  }
+  30%{
+    transform: translateX(-10px);
+  }
+  40%{
+    transform: translateX(10px);
+  }
+  50%{
+    transform: translateX(-5px);
+  }
+  60%{
+    transform: translateX(5px);
+  }
+  70%{
+    transform: translateX(-3px);
+  }
+  80%{
+    transform: translateX(3px);
+  }
+  90%{
+    transform: translateX(-3px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+@keyframes validFlip {
+  0%{
+    transform: rotate3d(1,0,0,0deg);
+  }
+  100%{
+    transform: rotate3d(1,0,0,360deg);
+  }
 }
