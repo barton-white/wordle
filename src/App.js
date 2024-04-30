@@ -85,6 +85,7 @@ function checkAlmost(ans,inp,letter,num){
   }
   let wrongSpot = (num > correctIndex || num < correctIndex);
   
+  //only works because there are 5 letters.
   if(inputCount[letter] - answerCount[letter] === 1){
     if(wrongSpot && num === inp.lastIndexOf(letter)) currentClass = 'wrong';
   } else if(inputCount[letter] - answerCount[letter] === 2){
