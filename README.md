@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# Wordle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I've been making this to help hone my react skills and because I love wordle. 
+
+## To-do:
+
+- Need to track stats
+- Need a pop up to show stats / fail state
+- Redecorate so it's not a rip-off of the official Wordle
+- Animations could be crisper. Right now they are kind of bare minimum.
+- Refine "yellow" state detection.
+
+## How it works
+
+- Uses binary tree to spell check words. There is a separate dictionary for each starting letter and each one is fetched as needed. So far this works surprisingly fast locally and each dictionary is around 8-11kb.
+- The dictionaries were built from the Collin's Scrabble dictionaries. I copied each one to a txt file and used a node script (which I will post somewhere later) to turn each one into a binary tree format in a json file.
+- The hardest part was checking for the 'yellow' state. 
+	- I have something in place that works pretty good but there are some cases where it gets things wrong. If you use a word with 3 instances of a letter in the input and there are 2 in the answer, the 3rd letter gets marked yellow when it shouldn't.
+	- It works most of the time though. 
+	- There are very few 5 letter words with 3 instances of the same letter.
+	- Using [word.tips](https://word.tips) to test, I've discovered they haven't solved the problem yet either because searching for "SSS" in contains and 5 as the length reveals no results although I know "SASSY" is in their dictionary.
+
 
 ## Available Scripts
 
@@ -38,16 +57,6 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
 ### Analyzing the Bundle Size
 
